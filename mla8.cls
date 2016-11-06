@@ -3,25 +3,29 @@
 \typeout{MLA8 package by Matthew Lavin}
 
 \LoadClass{article}
-
-% Following is credited to Edward Z. Yang
-\ifpdf % We're generating a pdf
-	\RequirePackage[pdftex]{color,graphicx}
-	\pdfpagewidth=\paperwidth
-	\pdfpageheight=\paperheight
-	\RequirePackage{thumbpdf}
-	%\pdfcompresslevel=9
-\else
-	\RequirePackage[dvips]{graphicx}
-\fi
-
 \RequirePackage{fancyhdr}
+\RequirePackage[doublespacing]{setspace}
+
+%% Following is credited to Edward Z. Yang
+%\ifpdf % We're generating a pdf
+%	\RequirePackage[pdftex]{color,graphicx}
+%	\pdfpagewidth=\paperwidth
+%	\pdfpageheight=\paperheight
+%	\RequirePackage{thumbpdf}
+%	%\pdfcompresslevel=9
+%\else
+%	\RequirePackage[dvips]{graphicx}
+%\fi
+
+
 
 % Class option to produce an index
 \DeclareOption{index}{\RequirePackage{makeidx}\makeindex}
 
 % Class option: load biblatex-mla
 \DeclareOption{biblatex}{\RequirePackage{biblatex-mla}}
+
+\ProcessOptions
 
 \pagestyle{headings}
 
