@@ -2,7 +2,7 @@
 \ProvidesClass{mla8}[2016/11/06 MLA8 class]
 \typeout{MLA8 package by Matthew Lavin}
 
-\LoadClass{article}
+\LoadClass[12pt]{article}
 \RequirePackage{fancyhdr}
 \RequirePackage{etoolbox}
 \RequirePackage[doublespacing]{setspace}
@@ -11,11 +11,11 @@
 \DeclareOption{index}{\RequirePackage{makeidx}\makeindex}
 
 % Class option: load biblatex-mla
-\DeclareOption{biblatex}{\RequirePackage{biblatex-mla}}
+
 
 \ProcessOptions
 
-\pagestyle{headings}
+%\pagestyle{headings}
 
 % Page dimensions
 \setlength{\paperheight}{11in}
@@ -46,7 +46,7 @@
 	\renewcommand{\footrulewidth}{0pt}
 }
 \fancyhf{}
-\pagestyle{headings}
+\pagestyle{myheadings}
 \pagestyle{norule}
 
 % Tab formatting
@@ -59,13 +59,10 @@
 \newcommand{\@course}{}
 \newcommand{\course}[1]{\gdef\@course{#1}}
 
-\newcommand{\lastname}[1]{\newcommand{\last}{#1}}
-
 \AtBeginDocument{
 	\frenchspacing
 	\raggedright
-	\setlength{\parindent}{.5in}
-	\fancyhead[RO]{\last\ \thepage}}
+	\setlength{\parindent}{.5in}}
 
 \renewcommand{\@maketitle}{
 	\raggedright
