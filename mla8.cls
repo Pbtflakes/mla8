@@ -7,19 +7,6 @@
 \RequirePackage{etoolbox}
 \RequirePackage[doublespacing]{setspace}
 
-%% Following is credited to Edward Z. Yang
-%\ifpdf % We're generating a pdf
-%	\RequirePackage[pdftex]{color,graphicx}
-%	\pdfpagewidth=\paperwidth
-%	\pdfpageheight=\paperheight
-%	\RequirePackage{thumbpdf}
-%	%\pdfcompresslevel=9
-%\else
-%	\RequirePackage[dvips]{graphicx}
-%\fi
-
-
-
 % Class option to produce an index
 \DeclareOption{index}{\RequirePackage{makeidx}\makeindex}
 
@@ -72,7 +59,13 @@
 \newcommand{\@course}{}
 \newcommand{\course}[1]{\gdef\@course{#1}}
 
-\AtBeginDocument{\raggedright\setlength{\parindent}{.5in}}
+\newcommand{\lastname}[1]{\newcommand{\last}{#1}}
+
+\AtBeginDocument{
+	\frenchspacing
+	\raggedright
+	\setlength{\parindent}{.5in}
+	\fancyhead[RO]{\last\ \thepage}}
 
 \renewcommand{\@maketitle}{
 	\raggedright
