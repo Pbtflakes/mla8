@@ -4,6 +4,7 @@
 
 \LoadClass{article}
 \RequirePackage{fancyhdr}
+\RequirePackage{etoolbox}
 \RequirePackage[doublespacing]{setspace}
 
 %% Following is credited to Edward Z. Yang
@@ -53,5 +54,35 @@
 \renewcommand{\rmdefault}{ptm}
 \renewcommand{\ttdefault}{pcr}
 
-% Tab command to force indentation after section headings
+\fancypagestyle{norule}{ %
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\fancyhf{}
+\pagestyle{headings}
+\pagestyle{norule}
+
+% Tab formatting
+
 \newcommand{\tab}{\hspace{0.5in}}
+
+\newcommand{\@instructor}{}
+\newcommand{\instructor}[1]{\gdef\@instructor{#1}}
+
+\newcommand{\@course}{}
+\newcommand{\course}[1]{\gdef\@course{#1}}
+
+\AtBeginDocument{\raggedright\setlength{\parindent}{.5in}}
+
+\renewcommand{\@maketitle}{
+	\raggedright
+	\@author\newline
+	\@instructor\newline
+	\@course\newline
+	\@date
+	\setlength\topsep{0pt}
+	\setlength\parskip{0pt}
+	\begin{center}
+		\@title
+	\end{center}
+}
